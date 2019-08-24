@@ -27,3 +27,9 @@ How readable is the code? (10 Points)
 Mathematical Logic (10 Points)
 Meet the full requirements (5 Points) 
 ```
+
+### RUN Task Test
+
+- create environmet ``` virtualenv -p python3 env```
+- activate environment ``` source env/bin/activate```
+- run test cases ``` python test.py```
