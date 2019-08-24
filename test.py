@@ -76,6 +76,25 @@ class MyTestCase(unittest.TestCase):
 
         self.assertTrue('Leon amount Exceeded Investor Balance' in str(context.exception))
 
+    # test submit float leon amount
+    def test_processFloatLeon(self):
+        leon_amount = 5.0006 * 1000
+        leon_period = 6
+        lenom_fees = 3
+        avialble_amount = 900 * 1000
+        res = processLeon(leon_amount, leon_period, lenom_fees, avialble_amount)
+        expect_json = {
+            'leon_status': 'Completed',
+            'leon_amount': 5000.6,
+            'leon_period': 6,
+            'annual_rate_percentage': 750.09,
+            'annual_rate': 15,
+            'leon_amount_after_adding_annual_rate': 5750.69,
+            'investor_total_fund': 5753.69,
+            'lenom_fees': 3
+        }
+        self.assertTrue(expect_json, res)
+
     # test submit leon
     def test_processLeon(self):
         leon_amount = 5 * 1000
